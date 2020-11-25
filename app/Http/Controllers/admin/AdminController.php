@@ -12,8 +12,4 @@ class AdminController extends Controller
     public function index(){
         return view('admin.dashbord');
     }
-
-    public function allProduct(){
-        return view('admin.product.product');
-    }
 }
