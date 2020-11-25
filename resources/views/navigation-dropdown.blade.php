@@ -41,6 +41,10 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <a href="" class="btn m-0 p-0 mr-2">
+                    <i class="fa fa-cart-plus">Cart</i>
+                    <span class="badge badge-primary">0</span>
+                </a>
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         @if (\Illuminate\Support\Facades\Auth::user())
@@ -72,9 +76,11 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
-                        <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
-                            {{ __('Admin Panel') }}
-                        </x-jet-dropdown-link>
+                        @if(\Illuminate\Support\Facades\Auth::user()->role->name == 'ROLE_ADMIN')
+                            <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
+                                {{ __('Admin Panel') }}
+                            </x-jet-dropdown-link>
+                        @endif
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">

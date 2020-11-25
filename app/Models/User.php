@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'username',
         'email',
+        'role_id',
         'password',
     ];
 
@@ -59,4 +60,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function role(){
+        return $this->belongsTo('App\Models\Role');
+    }
 }

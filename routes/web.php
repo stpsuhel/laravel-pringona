@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,7 @@ Route::resource('/category', CategoryController::class);
 Route::resource('/product', ProductController::class);
 
 //Admin Route
-Route::get('priyangona/admin/home', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::get('priyangona/admin/home', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('priyangona/admin/product', [AdminController::class, 'allProduct'])->name('admin.product');
+});
