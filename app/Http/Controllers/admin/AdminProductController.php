@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class AdminProductController extends Controller
 {
     public function index(){
-        return view('admin.product.product');
+        $allProduct = Product::all();
+        return view('admin.product.product', compact('allProduct'));
     }
 
     public function create(){
@@ -19,12 +20,22 @@ class AdminProductController extends Controller
     }
 
     public function store(Request $request){
-        if ($request->discount == null){
-            $request->discount = 0;
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'description' => 'required|max:255',
+            'price' => 'required|max:5',
+            'category_id' => 'required|max:5',
+            'quantity' => 'required|max:5',
+        ]);
+
+        $data = $request->all();
+
+        if ($data['discount'] == null){
+            $data['discount'] = 0;
         }
         $product = new Product();
-        $product->create($request->all());
-        return redirect('priyangona/admin-product');
+        $product->create($data);
+        return redirect()->route('admin.dashboard');
     }
 
 }
