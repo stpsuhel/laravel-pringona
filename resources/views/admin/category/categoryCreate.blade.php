@@ -31,32 +31,32 @@
             <div class="card-body row">
                 <div class="form-group col-md-6">
                     <label for="name" class="ml-2">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Product Name" required>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Product Name" required>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="description" class="ml-2">Description</label>
-                    <input type="text" name="description" class="form-control" id="description" placeholder="Enter Description" required>
+                    <input type="text" class="form-control" id="description" placeholder="Enter Description" required>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="price" class="ml-2">Price</label>
-                    <input type="number" name="price" class="form-control" id="price" placeholder="Enter Price" required>
+                    <input type="number" class="form-control" id="price" placeholder="Enter Price" required>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="quantity" class="ml-2">Quantity</label>
-                    <input type="number" name="quantity" class="form-control" id="quantity" placeholder="Enter Quantity" required>
+                    <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity" required>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="discount" class="ml-2">Discount</label>
-                    <input type="number" name="discount" class="form-control" id="discount" placeholder="Enter Discount">
+                    <input type="number" class="form-control" id="discount" placeholder="Enter Discount">
                 </div>
 
                 <div class="form-group col-md-6" data-select2-id="67">
                     <label>Select Category</label>
-                    <select class="form-control select2bs4 select2-hidden-accessible" name="category_id" style="width: 100%;" data-select2-id="25" tabindex="-1" aria-hidden="true">
+                    <select class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" data-select2-id="25" tabindex="-1" aria-hidden="true">
                         @foreach($allCategory as $category)
                             <option value="{{ $category->id }}" data-select2-id="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach

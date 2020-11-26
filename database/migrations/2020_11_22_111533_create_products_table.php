@@ -19,10 +19,10 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->string('description');
-            $table->boolean('status')->default(false);
+            $table->boolean('status')->default(true);
             $table->integer('price');
             $table->integer('quantity');
-            $table->integer('discount');
+            $table->integer('discount')->default(0);
             $table->timestamps();
         });
     }
