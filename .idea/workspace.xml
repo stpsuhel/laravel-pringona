@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="64fe11f4-381a-4537-a5b8-92df275124f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/base/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/base/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/base/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/base/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/product.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +67,7 @@
       <workItem from="1606151016726" duration="1372000" />
       <workItem from="1606203960504" duration="2818000" />
       <workItem from="1606216386933" duration="17976000" />
-      <workItem from="1606365652464" duration="19894000" />
+      <workItem from="1606365652464" duration="20325000" />
     </task>
     <task id="LOCAL-00001" summary="Save product on database">
       <created>1606381079901</created>
