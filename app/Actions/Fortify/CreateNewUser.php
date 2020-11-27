@@ -20,7 +20,7 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-        $role = Role::where('name', 'ROLE_ADMIN')->first();
+        $role = Role::where('name', 'ROLE_USER')->first();
 
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
