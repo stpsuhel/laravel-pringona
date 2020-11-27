@@ -11,11 +11,11 @@ class RoleController extends Controller
         $role = new Role();
 
         $role->create([
-            'name' => 'ROLE_USER_2',
+            'name' => 'ROLE_ADMIN',
         ]);
 
         $role->create([
-            'name' => 'ROLE_USER_3',
+            'name' => 'ROLE_USER',
         ]);
         return 'Role Created SuccessFully';
     }
