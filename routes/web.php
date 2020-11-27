@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AdminProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('/category', CategoryController::class);
 Route::resource('/product', ProductController::class);
+Route::get('/role/store', [RoleController::class, 'store']);
 
 //Admin Route
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
