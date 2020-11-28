@@ -19,6 +19,15 @@
     </div>
     <!-- /.content-header -->
 
+    <div class="w-50 sm:w-full m-auto">
+        @if(session('message'))
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {{ session('message') }}
+            </div>
+        @endif
+    </div>
+
     <div class="card mx-3">
         <div class="card-header border-transparent">
             <h3 class="card-title p-2">All Product</h3>
@@ -29,26 +38,30 @@
         <!-- /.card-header -->
         <div class="card-body p-0">
             <div class="table-responsive table-striped">
-                <table class="table m-0">
+                <table class="table m-0 border-bottom">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Name</th>
-                        <th>Description</th>
                         <th>Category</th>
                         <th>Price</th>
                         <th>Quantity</th>
+                        <th class="flex justify-content-end">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($allProduct as $product)
                         <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->description }}</td>
+                            <td><a href="{{ route('admin-product.show', $product->id) }}">{{ $product->name }}</a></td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->price }}</td>
                             <td>{{ $product->quantity }}</td>
+                            <td class="flex justify-content-end">
+                                <form action="{{ route('admin-product.destroy', $product->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-sm btn-danger p-2">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

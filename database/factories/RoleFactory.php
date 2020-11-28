@@ -22,7 +22,7 @@ class RoleFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'ROLE_USER',
+            'name' => $this->faker->name,
         ];
     }
 }

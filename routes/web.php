@@ -5,7 +5,6 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AdminProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,11 +32,18 @@ Route::resource('/product', ProductController::class);
 
 //Admin Route
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
-    //Admin
-    Route::get('priyangona/admin/home', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::prefix('priyangona/admin')->group(function (){
+        //Admin
+        Route::get('home', [AdminController::class, 'index'])->name('admin.dashboard');
 
-    //Category
-    Route::resource('priyangona/admin-category', AdminCategoryController::class);
-    //Product
-    Route::resource('priyangona/admin-product', AdminProductController::class);
+        //Category
+        Route::name('admin-')->group(function (){
+            Route::resource('category', AdminCategoryController::class);
+        });
+
+        //Product
+        Route::name('admin-')->group(function (){
+            Route::resource('product', AdminProductController::class);
+        });
+    });
 });

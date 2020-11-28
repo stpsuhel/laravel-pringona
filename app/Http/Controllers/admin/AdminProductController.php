@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AdminProductController extends Controller
 {
     public function index(){
-        $allProduct = Product::paginate(5);
+        $allProduct = Product::paginate(15);
         return view('admin.product.product', compact('allProduct'));
     }
 
@@ -36,6 +36,11 @@ class AdminProductController extends Controller
         $product = new Product();
         $product->create($data);
         return redirect()->route('admin.dashboard');
+    }
+
+    public function destroy(Product $product){
+        $product->delete();
+        return back()->with('message', 'Product Deleted successfully!');
     }
 
 }
